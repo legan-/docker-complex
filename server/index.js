@@ -39,12 +39,12 @@ app.get('/values/all', async (req, res) => {
 });
 
 app.get('/values/current', async (req, res) => {
-  redisClient.hgetall('values', (err, values) => {
-    res.send(value);
+  await redisClient.hgetall('values', (err, values) => {
+    res.send(values);
   });
 });
 
-app.post('/values', async (res, req) => {
+app.post('/values', async (req, res) => {
   const index = req.body.index;
 
   if (parseInt(index) > 40) {
