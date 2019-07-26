@@ -25,3 +25,16 @@ after_success:
   - docker push legan/multi-nginx
   - docker push legan/multi-server
   - docker push legan/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucker_name: elasticbeanstalk-eu-west-2-376311266098
+  bucker_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
