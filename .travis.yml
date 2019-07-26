@@ -30,7 +30,7 @@ deploy:
   provider: elasticbeanstalk
   region: eu-west-2
   app: "docker-react"
-  env: "DockerReact-env"
+  env: "MultiDocker-env"
   bucket_name: "elasticbeanstalk-eu-west-2-376311266098"
   bucker_path: docker-multi
   on:
